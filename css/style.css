@@ -1,0 +1,231 @@
+body {
+	margin: 0;
+}
+
+button {
+    -webkit-box-sizing: content-box;
+       -moz-box-sizing: content-box;
+            box-sizing: content-box;
+}
+
+button {
+    background: none;
+    border: 0;
+    color: inherit;
+    /* cursor: default; */
+    font: inherit;
+    line-height: normal;
+    overflow: visible;
+    padding: 0;
+    -webkit-appearance: button; /* for input */
+    -webkit-user-select: none; /* for button */
+       -moz-user-select: none;
+        -ms-user-select: none;
+}
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+.videoWrapper {
+	position: relative;
+}
+
+.video {
+	width: 100%;
+}
+.captions {
+	padding: 20px;
+}
+p {
+	padding: 10px 0;
+}
+
+.buttonbar {
+	box-sizing: border-box;
+	position: absolute;
+	bottom: 3px;
+	width: 100%;
+	height: 10px;
+	padding: 0 20px 0;
+	background: rgba(0,0,0,0.4);
+	font-size: 0;
+	transition: 0.3s all;
+	overflow: hidden;
+}
+.videoWrapper:hover .buttonbar {
+	height: auto;
+	padding: 22px 20px 21px;
+}
+.videoWrapper:hover .buttons{
+	opacity: 1;
+}
+
+.progress {
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 3px;
+	/*padding: 0 5px;*/
+}
+.progressBar {
+	width: 100%;
+	margin: 0;
+}
+.playProgress {
+	box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    -moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    background: #ff9900;
+    -moz-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    transition: all 1s;
+}
+
+/*TRACK*/
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  /*margin: 0.3px 0;*/
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  /*box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;*/
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0;
+  /*border: 0.2px solid #010101;*/
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  border: 0px solid rgba(0, 0, 0, 0);
+  height: 3px;
+  width: 17px;
+  border-radius: 0px;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -0.5px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: rgba(0, 0, 0, 0.5);
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 0;
+  border: 0;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  border: 0px solid rgba(0, 0, 0, 0);
+  height: 3px;
+  width: 17px;
+  border-radius: 0px;
+  background: transparent;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 3px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  /*background: #e68a00;*/
+  background: red;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+input[type=range]::-ms-fill-upper {
+  /*background: #ff9900;*/
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  height: 3px;
+  width: 17px;
+  border-radius: 0px;
+  background: transparent;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  /*background: #ff9900;*/
+  background: red;
+}
+input[type=range]:focus::-ms-fill-upper {
+  /*background: #ffa31a;*/
+}
+
+
+
+
+/*BUTTONS*/
+.buttons {
+	opacity: 0;
+	transition: 0.25s all;
+}
+.buttons:after {
+	display: table;
+	content: '';
+	clear: both;
+}
+.button-left {
+	float: left;
+}
+
+.button-right {
+	float: right;
+}
+
+
+.play {
+	width: 20px;
+	height: 24px;
+    vertical-align: bottom;
+}
+.play img {
+	width: 100%;
+}
+.timeDisplay {
+	display: inline-block;
+	padding-left: 15px;
+	color: #fff;
+	font-size: 12px;
+	vertical-align: central;
+}
+.timeSeperator {
+	margin: 0 5px;
+}
+.mute {
+	width: 20px;
+	height: 24px;
+}
+.fullscreen {
+	width: 20px;
+	height: 24px;
+	padding-left: 20px;
+}
