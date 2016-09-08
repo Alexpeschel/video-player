@@ -53,13 +53,12 @@ p {
 	transition: 0.3s all;
 	overflow: hidden;
 }
-.videoWrapper:hover .buttonbar {
-	height: auto;
-	padding: 22px 20px 21px;
+/*.videoWrapper:hover .buttonbar {*/
+.buttonbar {
+	height: 69px;
+	/*padding: 22px 20px 21px;*/
+  padding: 0 20px;
   overflow: visible;
-}
-.videoWrapper:hover .buttons{
-	opacity: 1;
 }
 
 .progress {
@@ -69,6 +68,7 @@ p {
 	left: 0;
 	width: 100%;
 	height: 3px;
+  background: rgba(0, 0, 0, 0.5);
 	/*padding: 0 5px;*/
 }
 .progressBar {
@@ -95,27 +95,32 @@ p {
 }
 
 /*TRACK*/
-input[type=range] {
+.progressBar {
+  position: relative;
   -webkit-appearance: none;
   width: 100%;
+  height: 6px;
+  z-index: 999;
+  background: transparent;
   /*margin: 0.3px 0;*/
 }
-input[type=range]:focus {
-  outline: none;
+.progressBar:focus {
+  outline: none!important;
+  background: transparent;
 }
-input[type=range]::-webkit-slider-runnable-track {
+.progressBar::-webkit-slider-runnable-track {
   width: 100%;
-  height: 3px;
+  height: 100%;
   cursor: pointer;
   /*box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;*/
-  background: rgba(0, 0, 0, 0.5);
+  /*background: rgba(0, 0, 0, 0.5);*/
   border-radius: 0;
   /*border: 0.2px solid #010101;*/
 }
-input[type=range]::-webkit-slider-thumb {
+.progressBar::-webkit-slider-thumb {
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
   border: 0px solid rgba(0, 0, 0, 0);
-  height: 3px;
+  height: 100%;
   width: 17px;
   border-radius: 0px;
   background: transparent;
@@ -123,62 +128,42 @@ input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   margin-top: -0.5px;
 }
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: rgba(0, 0, 0, 0.5);
+.progressBar:focus::-webkit-slider-runnable-track {
+  /*background: rgba(0, 0, 0, 0.5);*/
 }
-input[type=range]::-moz-range-track {
+.progressBar::-moz-range-track {
   width: 100%;
-  height: 3px;
+  height: 100%;
   cursor: pointer;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
   background: rgba(0, 0, 0, 0.5);
   border-radius: 0;
   border: 0;
 }
-input[type=range]::-moz-range-thumb {
+.progressBar::-moz-range-thumb {
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
   border: 0px solid rgba(0, 0, 0, 0);
-  height: 3px;
+  height: 100%;
   width: 17px;
   border-radius: 0px;
   background: transparent;
   cursor: pointer;
 }
-input[type=range]::-ms-track {
+.progressBar::-ms-track {
   width: 100%;
-  height: 3px;
+  height: 100%;
   cursor: pointer;
   background: transparent;
   border-color: transparent;
   color: transparent;
 }
-input[type=range]::-ms-fill-lower {
-  /*background: #e68a00;*/
-  background: red;
-  border: 0;
-  border-radius: 0;
+.progressBar::-ms-thumb {
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-}
-input[type=range]::-ms-fill-upper {
-  /*background: #ff9900;*/
-  border: 0;
-  border-radius: 0;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-}
-input[type=range]::-ms-thumb {
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-  height: 3px;
+  height: 100%;
   width: 17px;
   border-radius: 0px;
   background: transparent;
   cursor: pointer;
-}
-input[type=range]:focus::-ms-fill-lower {
-  /*background: #ff9900;*/
-  background: red;
-}
-input[type=range]:focus::-ms-fill-upper {
-  /*background: #ffa31a;*/
 }
 
 
@@ -195,19 +180,27 @@ input[type=range][orient=vertical]
 
 /*BUTTONS*/
 .buttons {
+  height: 100%;
 	opacity: 0;
 	transition: 0.25s all;
+  color: #fff;
 }
 .buttons:after {
 	display: table;
 	content: '';
 	clear: both;
 }
+/*.videoWrapper:hover .buttons{*/
+.buttons{
+  opacity: 1;
+}
 .button-left {
+  height: 100%;
 	float: left;
 }
 
 .button-right {
+  height: 100%;
 	float: right;
 }
 
@@ -230,14 +223,21 @@ input[type=range][orient=vertical]
 .timeSeperator {
 	margin: 0 5px;
 }
+/*SPEED CONTROL*/
 .speed-container {
-
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 100%;
 }
 .speed-button {
-
+  height: 100%;
+  font-size: 16px;
 }
 .speed-controls {
-
+  position: absolute;
+  top: 0;
+  font-size: 10px;
 }
 .speed {
 
@@ -246,12 +246,16 @@ input[type=range][orient=vertical]
 
 }
 .sound-container {
-
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 100%;
+  margin-left: 20px;
 }
 .mute-button {
   position: relative;
 	width: 20px;
-	height: 24px;
+  height: 100%;
 }
 .volume-slide {
   position: absolute;
@@ -262,21 +266,21 @@ input[type=range][orient=vertical]
   display: block;
 }
 .subtitles-container {
-
+  display: inline-block;
+  height: 100%;
+  margin-left: 20px;
 }
 .cc-button {
-  height: 24px;
+  height: 100%;
   color: #fff;
-
   font-size: 25px;
-  margin-left: 20px;
 }
 .cc-button.show {
   color: #e38901;
 }
 .fullscreen-button {
 	width: 20px;
-	height: 24px;
+  height: 100%;
 	margin-left: 20px;
 }
 
