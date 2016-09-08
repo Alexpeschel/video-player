@@ -6,6 +6,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
@@ -14,7 +15,7 @@
 			<video id="video" class="video">
 			  <source src="video/video.ogg" type="video/ogv">
 			  <source src="video/video.mp4" type="video/mp4">
-			  <track kind="subtitles" label="English subtitles" src="video/captions.vtt" srclang="en" default></track>
+			  <track kind="subtitles" label="English subtitles" src="video/captions.vtt" srclang="en" default>
 			  Your browser does not support the <code>video</code> element.
 			</video>
 
@@ -25,18 +26,63 @@
 				</div>
 				<div class="buttons">
 				    <div class="button-left">
-					    <button id="play" class="play" onclick="vidplay()">
+					    <button id="play" class="play-button" onclick="vidplay()">
 					    	<img id="playImage" src="icons/play-icon.png" alt="">
 					    </button>
 					    <div id="timeDisplay" class="timeDisplay">
 					    	<span id="timeCurrent">00:00</span><span class="timeSeperator">/</span><span id="timeDuration">00:59</span>
 					    </div>
 				    </div>
-				    <div class="button-right">
-				    	<button id='mute-button' class='mute' title='mute' onclick='toggleMute();'>
-					    	<img id="muteImage" src="icons/volume-on-icon.png" alt="">
-				    	</button>
-				    	<button id='fullscreen-button' class='fullscreen' title='fullscreen' onclick='toggleFullScreen();'>
+				    <div class="button-right" id="button-right">
+				    	<div class="speed-container">
+				    		<button id="speed-button" class="speed-button"></button>
+				    		<div class="speed-controls">
+				    			<ol>
+				    				<li class="speed" data-speed="2">
+				    				2x
+				    				<span class="speed-tooltip">2x</span>
+				    				</li>
+				    				<li class="speed" data-speed="1.75">
+				    				1.75x
+				    				<span class="speed-tooltip">1.75x</span>
+				    				</li>
+				    				<li class="speed" data-speed="1.5">
+				    				1.5x
+				    				<span class="speed-tooltip">1.5x</span>
+				    				</li>
+				    				<li class="speed" data-speed="1.25">
+				    				1.25x
+				    				<span class="speed-tooltip">1.25x</span>
+				    				</li>
+				    				<li class="speed" data-speed="1.1">
+				    				1.1x
+				    				<span class="speed-tooltip">1.1x</span>
+				    				</li>
+				    				<li class="speed" data-speed="1">
+				    				1x
+				    				<span class="speed-tooltip">1x</span>
+				    				</li>
+				    				<li class="speed" data-speed="0.75">
+				    				0.75x
+				    				<span class="speed-tooltip">0.75x</span>
+				    				</li>
+				    				<li class="speed" data-speed="0.5">
+				    				0.5x
+				    				<span class="speed-tooltip">0.5x</span>
+				    				</li>
+				    			</ol>
+				    		</div>
+				    	</div>
+				    	<div class="sound-container">
+					    	<button id='mute-button' class='mute-button' title='mute' onclick='toggleMute();'>
+						    	<img id="muteImage" src="icons/volume-on-icon.png" alt="">
+					    	</button>
+				    		<input id="volume-slide" class="volume-slide" type="range" orient="vertical" value="0"/>
+						</div>
+				    	<div class="subtitles-container">
+   							<button class="cc-button show" id="subtitles" type="button" data-state="subtitles">CC</button>
+   						</div>
+				    	<button id='fullscreen-button' class='fullscreen-button' title='fullscreen' onclick='toggleFullScreen();'>
 				    		<img id="fullscreenImage" src="icons/fullscreen-icon.png" alt="">
 				    	</button>
 				    </div>
@@ -46,65 +92,65 @@
     	</div>
 
 		<p class="captions">
-			<span data-pos-start="00:00:00,240" data-pos-end="00:00:04,130">
+			<span class="captionPart">
 				Now that we've looked at the architecture
 				of the internet, let's see how you might
 			</span>
-			<span data-pos-start="00:00:04,130" data-pos-end="00:00:07,535">
+			<span class="captionPart">
 				connect your personal devices to
 				the internet inside your house.
 			</span>
-			<span data-pos-start="00:00:07,535" data-pos-end="00:00:11,270">
+			<span class="captionPart">
 				Well there are many ways to
 				connect to the internet, and
 			</span>
-			<span data-pos-start="00:00:11,270" data-pos-end="00:00:13,960">
+			<span class="captionPart">
 				most often people connect wirelessly.
 			</span>
-			<span data-pos-start="00:00:13,960" data-pos-end="00:00:17,940">
+			<span class="captionPart">
 				Let's look at an example of how
 				you can connect to the internet.
 			</span>
-			<span data-pos-start="00:00:17,940" data-pos-end="00:00:22,370">
+			<span class="captionPart">
 				If you live in a city or a town,
 				you probably have a coaxial cable for
 			</span>
-			<span data-pos-start="00:00:22,370" data-pos-end="00:00:26,880">
+			<span class="captionPart">
 				cable Internet, or a phone line if you
 				have DSL, running to the outside of
 			</span>
-			<span data-pos-start="00:00:26,880" data-pos-end="00:00:30,920">
+			<span class="captionPart">
 				your house, that connects you to
 				the Internet Service Provider, or ISP.
 			</span>
-			<span data-pos-start="00:00:32,100" data-pos-end="00:00:34,730">
+			<span class="captionPart">
 				If you live far out in the country,
 				you'll more likely have
 			</span>
-			<span data-pos-start="00:00:34,730" data-pos-end="00:00:39,430">
+			<span class="captionPart">
 				a dish outside your house, connecting
 				you wirelessly to your closest ISP, or
 			</span>
-			<span data-pos-start="00:00:39,430" data-pos-end="00:00:41,190">
+			<span class="captionPart">
 				you might also use the telephone system.
 			</span>
-			<span data-pos-start="00:00:42,350" data-pos-end="00:00:46,300">
+			<span class="captionPart">
 				Whether a wire comes straight from
 				the ISP hookup outside your house, or
 			</span>
-			<span data-pos-start="00:00:46,300" data-pos-end="00:00:49,270">
+			<span class="captionPart">
 				it travels over radio
 				waves from your roof,
 			</span>
-			<span data-pos-start="00:00:49,270" data-pos-end="00:00:53,760">
+			<span class="captionPart">
 				the first stop a wire will make once
 				inside your house, is at your modem.
 			</span>
-			<span data-pos-start="00:00:53,760" data-pos-end="00:00:57,780">
+			<span class="captionPart">
 				A modem is what connects the internet
 				to your network at home.
 			</span>
-			<span data-pos-start="00:00:57,780" data-pos-end="00:01:00,150">
+			<span class="captionPart">
 				A few common residential modems are DSL or
 			</span>
 		</p>

@@ -56,6 +56,7 @@ p {
 .videoWrapper:hover .buttonbar {
 	height: auto;
 	padding: 22px 20px 21px;
+  overflow: visible;
 }
 .videoWrapper:hover .buttons{
 	opacity: 1;
@@ -90,7 +91,7 @@ p {
     -ms-transform: scaleX(0);
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
-    transition: all 1s;
+    /*transition: all 1s;*/
 }
 
 /*TRACK*/
@@ -181,6 +182,15 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 
+/*VERTICAL SLIDE*/
+input[type=range][orient=vertical]
+{
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+    width: 8px;
+    height: 175px;
+    padding: 0 5px;
+}
 
 
 /*BUTTONS*/
@@ -202,12 +212,12 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 
-.play {
+.play-button {
 	width: 20px;
 	height: 24px;
     vertical-align: bottom;
 }
-.play img {
+.play-button img {
 	width: 100%;
 }
 .timeDisplay {
@@ -220,12 +230,86 @@ input[type=range]:focus::-ms-fill-upper {
 .timeSeperator {
 	margin: 0 5px;
 }
-.mute {
+.speed-container {
+
+}
+.speed-button {
+
+}
+.speed-controls {
+
+}
+.speed {
+
+}
+.speed-tooltip {
+
+}
+.sound-container {
+
+}
+.mute-button {
+  position: relative;
 	width: 20px;
 	height: 24px;
 }
-.fullscreen {
+.volume-slide {
+  position: absolute;
+  bottom: 0;
+  display: none;
+}
+.sound-container:hover .volume-slide{
+  display: block;
+}
+.subtitles-container {
+
+}
+.cc-button {
+  height: 24px;
+  color: #fff;
+
+  font-size: 25px;
+  margin-left: 20px;
+}
+.cc-button.show {
+  color: #e38901;
+}
+.fullscreen-button {
 	width: 20px;
 	height: 24px;
-	padding-left: 20px;
+	margin-left: 20px;
+}
+
+.highlight {
+  color: #e38901;
+}
+
+
+.subtitles-menu {
+    display:none;
+    position:absolute;
+    bottom:14.8%;
+    right:20px;
+    background:#666;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    width:100px;
+    padding:10px;
+}
+
+.subtitles-menu li {
+    padding:0;
+    text-align:center;
+}
+
+.subtitles-menu li button {
+    border:none;
+    background:#000;
+    color:#fff;
+    cursor:pointer;
+    width:90%;
+    padding:2px 5px;
+    border-radius:2px;
+    font-size: 15px;
 }
