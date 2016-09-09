@@ -260,15 +260,46 @@ input[type=range][orient=vertical]
 .speed-controls {
   display: none;
   position: absolute;
-  top: 0;
-  font-size: 10px;
+  bottom: 100%;
+  width: 30px;
+  background: #000;
+}
+.speed-controls.show {
+  display: block;
+}
+.speed-controls ol {
+  list-style: none;
+  padding: 5px;
+  margin: 0;
 }
 .speed {
-
+  position: relative;
+  width: 100%;
+  height: 30px;
+}
+.speed:hover,
+.speed:hover ~ .speed,
+.speed.current,
+.speed.current ~ .speed {
+  background: #fff;
+}
+.speed:hover .speed-tooltip{
+  display: block;
 }
 .speed-tooltip {
-
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 34px;
+  padding: 2px 5px;
+  margin-right: 10px;
+  background: #fff;
+  color: #000;
+  font-size: 13px;
+  text-align: center;
 }
+/*SOUND CONTROL*/
 .sound-container {
   position: relative;
   display: inline-block;
@@ -309,6 +340,8 @@ input[type=range][orient=vertical]
   height: 100%;
   background: #fff;
 }
+
+/*SUBTITLES*/
 .subtitles-container {
   display: inline-block;
   height: 100%;
@@ -328,12 +361,12 @@ input[type=range][orient=vertical]
   height: 100%;
 	margin-left: 20px;
 }
-
+/*TEXT HIGHLIGHT*/
 .highlight {
   color: #e38901;
 }
 
-
+/*SUBTITLES MENU*/
 .subtitles-menu {
   display:none;
   position:absolute;

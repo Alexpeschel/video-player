@@ -264,5 +264,21 @@ function initialiseMediaPlayer() {
 		    muteBtnImage.src = "icons/volume-on-icon.png";
 		    muteBtnImage.title = "volume on";
 		}
-		
+	}
+
+	//Speed Control
+	//Speed Control event
+	$('#speed-button').on('click', function() {
+		$('.speed-controls').toggleClass('show');
+	});
+	$('.speed').on('click', function() {
+		updateSpeed(this, this.dataset.speed);
+	});
+	
+	function updateSpeed(obj, speed) {
+		$('.speed').removeClass('current');
+		$(obj).addClass('current');
+		mediaPlayer.playbackRate = speed;
+		mediaPlayer.play();
+		$('.speed-controls').removeClass('show');
 	};
