@@ -1,12 +1,22 @@
-body {
-	margin: 0;
+.example {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    background: -webkit-linear-gradient(top, white, black);
+    background: linear-gradient(to bottom, white, black);
+}body {
+  margin: 0;
   background: #000;
 }
 
 button {
-    -webkit-box-sizing: content-box;
-       -moz-box-sizing: content-box;
-            box-sizing: content-box;
+    box-sizing: content-box;
 }
 
 button {
@@ -36,15 +46,15 @@ button::-moz-focus-inner {
 }
 
 .videoWrapper {
-	position: relative;
+  position: relative;
 }
 
 .video {
-	width: 100%;
+  width: 100%;
 }
 .captions {
   max-width: 600px;
-	padding: 20px 30px 10px;
+  padding: 20px 30px 10px;
   margin: 0 auto;
   line-height: 1.5;
 }
@@ -55,38 +65,39 @@ button::-moz-focus-inner {
 }
 
 .buttonbar {
-	box-sizing: border-box;
-	position: absolute;
-	bottom: 3px;
-	width: 100%;
-	height: 10px;
-	padding: 0 20px 0;
-	background: rgba(0,0,0,0.4);
-	font-size: 0;
-	transition: 0.3s all;
-	overflow: hidden;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 3px;
+  width: 100%;
+  height: 10px;
+  padding: 0 20px 0;
+  background: rgba(0,0,0,0.4);
+  font-size: 0;
+  -webkit-transition: 0.3s all;
+  transition: 0.3s all;
+  overflow: hidden;
 }
 /*.videoWrapper:hover .buttonbar {*/
 .buttonbar {
-	height: 69px;
-	/*padding: 22px 20px 21px;*/
+  height: 69px;
+  /*padding: 22px 20px 21px;*/
   padding: 0 20px;
   overflow: visible;
 }
 
 .progress {
-	box-sizing: border-box;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 3px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
   background: rgba(0, 0, 0, 0.5);
-	/*padding: 0 5px;*/
+  /*padding: 0 5px;*/
 }
 .progressBar {
-	width: 100%;
-	margin: 0;
+  width: 100%;
+  margin: 0;
 }
 .bufferProgress {
   position: absolute;
@@ -94,30 +105,22 @@ button::-moz-focus-inner {
   bottom: 0;
   width: 100%;
   height: 100%;
-  -moz-transform-origin: 0 0;
-  -ms-transform-origin: 0 0;
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
   background: #c2c2c2;
-  -moz-transform: scaleX(0);
-  -ms-transform: scaleX(0);
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
 }
 .playProgress {
-	box-sizing: border-box;
+  box-sizing: border-box;
     position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
     height: 100%;
-    -moz-transform-origin: 0 0;
-    -ms-transform-origin: 0 0;
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
     background: #ff9900;
-    -moz-transform: scaleX(0);
-    -ms-transform: scaleX(0);
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
     /*transition: all 1s;*/
@@ -214,14 +217,15 @@ input[type=range][orient=vertical]
 /*BUTTONS*/
 .buttons {
   height: 100%;
-	opacity: 0;
-	transition: 0.25s all;
+  opacity: 0;
+  -webkit-transition: 0.25s all;
+  transition: 0.25s all;
   color: #fff;
 }
 .buttons:after {
-	display: table;
-	content: '';
-	clear: both;
+  display: table;
+  content: '';
+  clear: both;
 }
 /*.videoWrapper:hover .buttons{*/
 .buttons{
@@ -230,34 +234,35 @@ input[type=range][orient=vertical]
 .button-left {
   position: relative;
   height: 100%;
-	float: left;
+  float: left;
 }
 
 .button-right {
   height: 100%;
-	float: right;
+  float: right;
 }
 
 
 .play-button {
-	width: 20px;
-	height: 100%;
+  width: 20px;
+  height: 100%;
   vertical-align: baseline;
 }
 .play-button img {
-	width: 100%;
+  width: 100%;
 }
 .timeDisplay {
   position: absolute;
   top: 50%;
-	display: inline-block;
-	padding-left: 15px;
-	color: #fff;
-	font-size: 12px;
-  transform: translateY(-50%);
+  display: inline-block;
+  padding-left: 15px;
+  color: #fff;
+  font-size: 12px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 .timeSeperator {
-	margin: 0 5px;
+  margin: 0 5px;
 }
 /*SPEED CONTROL*/
 .speed-container {
@@ -323,7 +328,7 @@ input[type=range][orient=vertical]
 }
 .mute-button {
   position: relative;
-	width: 20px;
+  width: 20px;
   height: 100%;
 }
 .volume-container {
@@ -345,7 +350,8 @@ input[type=range][orient=vertical]
   vertical-align: baseline;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
 .volume {
   position: absolute;
@@ -372,9 +378,9 @@ input[type=range][orient=vertical]
   color: #fff;
 }
 .fullscreen-button {
-	width: 20px;
+  width: 20px;
   height: 100%;
-	margin-left: 20px;
+  margin-left: 20px;
 }
 /*TEXT HIGHLIGHT*/
 .highlight {
