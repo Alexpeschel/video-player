@@ -75,6 +75,22 @@ p {
 	width: 100%;
 	margin: 0;
 }
+.bufferProgress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  -moz-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  background: #c2c2c2;
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+}
 .playProgress {
 	box-sizing: border-box;
     position: absolute;
@@ -104,11 +120,11 @@ p {
   background: transparent;
   /*margin: 0.3px 0;*/
 }
-.progressBar:focus {
+input[type=range]:focus {
   outline: none!important;
   background: transparent;
 }
-.progressBar::-webkit-slider-runnable-track {
+input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: 100%;
   cursor: pointer;
@@ -117,15 +133,23 @@ p {
   border-radius: 0;
   /*border: 0.2px solid #010101;*/
 }
-.progressBar::-webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
   border: 0px solid rgba(0, 0, 0, 0);
-  height: 100%;
-  width: 17px;
   border-radius: 0px;
   background: transparent;
   cursor: pointer;
   -webkit-appearance: none;
+}
+.progressBar::-webkit-slider-thumb {
+  /*box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+  border: 0px solid rgba(0, 0, 0, 0);*/
+  height: 100%;
+  width: 17px;
+  /*border-radius: 0px;
+  background: transparent;
+  cursor: pointer;
+  -webkit-appearance: none;*/
   margin-top: -0.5px;
 }
 .progressBar:focus::-webkit-slider-runnable-track {
@@ -170,11 +194,7 @@ p {
 /*VERTICAL SLIDE*/
 input[type=range][orient=vertical]
 {
-    writing-mode: bt-lr; /* IE */
-    -webkit-appearance: slider-vertical; /* WebKit */
-    width: 8px;
-    height: 175px;
-    padding: 0 5px;
+    -webkit-appearance: none; /* WebKit */
 }
 
 
@@ -195,6 +215,7 @@ input[type=range][orient=vertical]
   opacity: 1;
 }
 .button-left {
+  position: relative;
   height: 100%;
 	float: left;
 }
@@ -207,18 +228,20 @@ input[type=range][orient=vertical]
 
 .play-button {
 	width: 20px;
-	height: 24px;
-    vertical-align: bottom;
+	height: 100%;
+  vertical-align: baseline;
 }
 .play-button img {
 	width: 100%;
 }
 .timeDisplay {
+  position: absolute;
+  top: 50%;
 	display: inline-block;
 	padding-left: 15px;
 	color: #fff;
 	font-size: 12px;
-	vertical-align: central;
+  transform: translateY(-50%);
 }
 .timeSeperator {
 	margin: 0 5px;
@@ -235,6 +258,7 @@ input[type=range][orient=vertical]
   font-size: 16px;
 }
 .speed-controls {
+  display: none;
   position: absolute;
   top: 0;
   font-size: 10px;
@@ -257,18 +281,39 @@ input[type=range][orient=vertical]
 	width: 20px;
   height: 100%;
 }
-.volume-slide {
-  position: absolute;
-  bottom: 0;
-  display: none;
+.volume-container {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100%;
+  margin-left: 20px;
+  vertical-align: top;
 }
-.sound-container:hover .volume-slide{
-  display: block;
+.volume-slide-container {
+  /*display: none;*/
+  box-sizing: border-box;
+  width: 100%;
+  height: 19px;
+  padding: 5px;
+  background: #000;
+  display: inline-block;
+  vertical-align: baseline;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.volume {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #fff;
 }
 .subtitles-container {
   display: inline-block;
   height: 100%;
   margin-left: 20px;
+  z-index: 9999;
 }
 .cc-button {
   height: 100%;
@@ -290,30 +335,49 @@ input[type=range][orient=vertical]
 
 
 .subtitles-menu {
-    display:none;
-    position:absolute;
-    bottom:14.8%;
-    right:20px;
-    background:#666;
-    list-style-type:none;
-    margin:0;
-    padding:0;
-    width:100px;
-    padding:10px;
+  display:none;
+  position:absolute;
+  bottom:85%;
+  right:30px;
+  width:100px;
+  margin:0;
+  padding:0;
+  list-style-type:none;
+}
+
+.subtitles-menu:after {
+  position: absolute;
+  z-index: 1001;
+  content: "";
+  background: #000;
+  width: 10px;
+  height: 10px;
+  top: 100%;
+  -webkit-transform-origin: center center;
+  -moz-transform-origin: center center;
+  -ms-transform-origin: center center;
+  -o-transform-origin: center center;
+  transform-origin: center center;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  -moz-transform: translate(-50%, -50%) rotate(45deg);
+  -ms-transform: translate(-50%, -50%) rotate(45deg);
+  -o-transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
+  left: 50%;
+  border-radius: 0 0 3px 0;
 }
 
 .subtitles-menu li {
-    padding:0;
-    text-align:center;
+  padding:0;
+  text-align:center;
 }
 
 .subtitles-menu li button {
-    border:none;
-    background:#000;
-    color:#fff;
-    cursor:pointer;
-    width:90%;
-    padding:2px 5px;
-    border-radius:2px;
-    font-size: 15px;
+  border:none;
+  background:#000;
+  color:#fff;
+  cursor:pointer;
+  width:90%;
+  padding: 5px;
+  font-size: 13px;
 }

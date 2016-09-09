@@ -7,21 +7,23 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
     	<div class="videoWrapper">
 
 			<video id="video" class="video">
-			  <source src="video/video.ogg" type="video/ogv">
+			  <source src="video/video.ogg" type="video/ogg">
 			  <source src="video/video.mp4" type="video/mp4">
-			  <track kind="subtitles" label="English subtitles" src="video/captions.vtt" srclang="en" default>
+			  <track kind="subtitles" label="English" src="video/captions.vtt" srclang="en" default>
 			  Your browser does not support the <code>video</code> element.
 			</video>
 
 			<div id="buttonbar" class="buttonbar">
 				<div class="progress">
 		    		<input type="range" id="progressBar" class="progressBar" value="0">
+    				<div id="bufferProgress" class="bufferProgress"></div>
 		    		<div id="playProgress" class="playProgress"></div>
 				</div>
 				<div class="buttons">
@@ -36,7 +38,7 @@
 				    <div class="button-right" id="button-right">
 				    	<div class="speed-container">
 				    		<button id="speed-button" class="speed-button">SD</button>
-				    		<div class="speed-controls">
+				    		<!-- <div class="speed-controls">
 				    			<ol>
 				    				<li class="speed" data-speed="2">
 				    				2x
@@ -71,13 +73,17 @@
 				    				<span class="speed-tooltip">0.5x</span>
 				    				</li>
 				    			</ol>
-				    		</div>
+				    		</div> -->
 				    	</div>
 				    	<div class="sound-container">
 					    	<button id='mute-button' class='mute-button' title='mute' onclick='toggleMute();'>
 						    	<img id="muteImage" src="icons/volume-on-icon.png" alt="">
 					    	</button>
-				    		<input id="volume-slide" class="volume-slide" type="range" orient="vertical" value="0"/>
+						</div>
+				    	<div class="volume-container">
+					    	<div class="volume-slide-container" id="volume">
+				    			<div id="volumeBar" class="volume"></div>
+				    		</div>
 						</div>
 				    	<div class="subtitles-container">
    							<button class="cc-button show" id="subtitles" type="button" data-state="subtitles">CC</button>
@@ -154,6 +160,7 @@
 				A few common residential modems are DSL or
 			</span>
 		</p>
-		<script src="js/script.js"></script>
+		<!-- <script src="js/script.js"></script> -->
+		<script src="js/app.js"></script>
     </body>
 </html>
