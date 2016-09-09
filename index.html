@@ -11,142 +11,144 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
-    	<div class="videoWrapper">
+    	<div class="container">
+	    	<div class="videoWrapper">
 
-			<video id="video" class="video">
-			  <source src="video/video.ogg" type="video/ogg">
-			  <source src="video/video.mp4" type="video/mp4">
-			  <track kind="subtitles" label="English" src="video/captions.vtt" srclang="en" default>
-			  Your browser does not support the <code>video</code> element.
-			</video>
+				<video id="video" class="video">
+				  <source src="video/video.ogg" type="video/ogg">
+				  <source src="video/video.mp4" type="video/mp4">
+				  <track kind="subtitles" label="English" src="video/captions.vtt" srclang="en" default>
+				  Your browser does not support the <code>video</code> element.
+				</video>
 
-			<div id="buttonbar" class="buttonbar">
-				<div class="progress">
-    				<div id="bufferProgress" class="bufferProgress"></div>
-		    		<div id="playProgress" class="playProgress"></div>
-		    		<input type="range" id="progressBar" class="progressBar" value="0">
-				</div>
-				<div class="buttons">
-				    <div class="button-left">
-					    <button id="play" class="play-button" onclick="vidplay()">
-					    	<img id="playImage" src="icons/play-icon.png" alt="">
-					    </button>
-					    <div id="timeDisplay" class="timeDisplay">
-					    	<span id="timeCurrent">00:00</span><span class="timeSeperator">/</span><span id="timeDuration">00:59</span>
+				<div id="buttonbar" class="buttonbar">
+					<div class="progress">
+	    				<div id="bufferProgress" class="bufferProgress"></div>
+			    		<div id="playProgress" class="playProgress"></div>
+			    		<input type="range" id="progressBar" class="progressBar" value="0">
+					</div>
+					<div class="buttons">
+					    <div class="button-left">
+						    <button id="play" class="play-button" onclick="vidplay()">
+						    	<img id="playImage" src="icons/play-icon.png" alt="">
+						    </button>
+						    <div id="timeDisplay" class="timeDisplay">
+						    	<span id="timeCurrent">00:00</span><span class="timeSeperator">/</span><span id="timeDuration">00:59</span>
+						    </div>
 					    </div>
-				    </div>
-				    <div class="button-right" id="button-right">
-				    	<div class="speed-container">
-				    		<button id="speed-button" class="speed-button">SD</button>
-				    		<div class="speed-controls">
-				    			<ol>
-				    				<li class="speed" data-speed="2">
-				    				2x
-				    				<span class="speed-tooltip">2x</span>
-				    				</li>
-				    				
-				    				<li class="speed" data-speed="1.5">
-				    				1.5x
-				    				<span class="speed-tooltip">1.5x</span>
-				    				</li>
-				    				
-				    				<li class="speed current" data-speed="1">
-				    				1x
-				    				<span class="speed-tooltip">1x</span>
-				    				</li>
-				    				
-				    				<li class="speed" data-speed="0.5">
-				    				0.5x
-				    				<span class="speed-tooltip">0.5x</span>
-				    				</li>
-				    			</ol>
-				    		</div>
-				    	</div>
-				    	<div class="sound-container">
-					    	<button id='mute-button' class='mute-button' title='mute' onclick='toggleMute();'>
-						    	<img id="muteImage" src="icons/volume-on-icon.png" alt="">
+					    <div class="button-right" id="button-right">
+					    	<div class="speed-container">
+					    		<button id="speed-button" class="speed-button">SD</button>
+					    		<div class="speed-controls">
+					    			<ol>
+					    				<li class="speed" data-speed="2">
+					    				2x
+					    				<span class="speed-tooltip">2x</span>
+					    				</li>
+					    				
+					    				<li class="speed" data-speed="1.5">
+					    				1.5x
+					    				<span class="speed-tooltip">1.5x</span>
+					    				</li>
+					    				
+					    				<li class="speed current" data-speed="1">
+					    				1x
+					    				<span class="speed-tooltip">1x</span>
+					    				</li>
+					    				
+					    				<li class="speed" data-speed="0.5">
+					    				0.5x
+					    				<span class="speed-tooltip">0.5x</span>
+					    				</li>
+					    			</ol>
+					    		</div>
+					    	</div>
+					    	<div class="sound-container">
+						    	<button id='mute-button' class='mute-button' title='mute' onclick='toggleMute();'>
+							    	<img id="muteImage" src="icons/volume-on-icon.png" alt="">
+						    	</button>
+							</div>
+					    	<div class="volume-container">
+						    	<div class="volume-slide-container" id="volume">
+					    			<div id="volumeBar" class="volume"></div>
+					    		</div>
+							</div>
+					    	<div class="subtitles-container">
+	   							<button class="cc-button show" id="subtitles" type="button" data-state="subtitles">CC</button>
+	   						</div>
+					    	<button id='fullscreen-button' class='fullscreen-button' title='fullscreen' onclick='toggleFullScreen();'>
+					    		<img id="fullscreenImage" src="icons/fullscreen-icon.png" alt="">
 					    	</button>
-						</div>
-				    	<div class="volume-container">
-					    	<div class="volume-slide-container" id="volume">
-				    			<div id="volumeBar" class="volume"></div>
-				    		</div>
-						</div>
-				    	<div class="subtitles-container">
-   							<button class="cc-button show" id="subtitles" type="button" data-state="subtitles">CC</button>
-   						</div>
-				    	<button id='fullscreen-button' class='fullscreen-button' title='fullscreen' onclick='toggleFullScreen();'>
-				    		<img id="fullscreenImage" src="icons/fullscreen-icon.png" alt="">
-				    	</button>
-				    </div>
+					    </div>
+					</div>
 				</div>
-			</div>
 
-    	</div>
+	    	</div>
 
-		<p class="captions">
-			<span class="captionPart" data-start="00.240">
-				Now that we've looked at the architecture
-				of the internet, let's see how you might
-			</span>
-			<span class="captionPart" data-start="04.130">
-				connect your personal devices to
-				the internet inside your house.
-			</span>
-			<span class="captionPart" data-start="07.535">
-				Well there are many ways to
-				connect to the internet, and
-			</span>
-			<span class="captionPart" data-start="11.270">
-				most often people connect wirelessly.
-			</span>
-			<span class="captionPart" data-start="13.960">
-				Let's look at an example of how
-				you can connect to the internet.
-			</span>
-			<span class="captionPart" data-start="17.940">
-				If you live in a city or a town,
-				you probably have a coaxial cable for
-			</span>
-			<span class="captionPart" data-start="22.370">
-				cable Internet, or a phone line if you
-				have DSL, running to the outside of
-			</span>
-			<span class="captionPart" data-start="26.880">
-				your house, that connects you to
-				the Internet Service Provider, or ISP.
-			</span>
-			<span class="captionPart" data-start="32.100">
-				If you live far out in the country,
-				you'll more likely have
-			</span>
-			<span class="captionPart" data-start="34.730">
-				a dish outside your house, connecting
-				you wirelessly to your closest ISP, or
-			</span>
-			<span class="captionPart" data-start="39.430">
-				you might also use the telephone system.
-			</span>
-			<span class="captionPart" data-start="42.350">
-				Whether a wire comes straight from
-				the ISP hookup outside your house, or
-			</span>
-			<span class="captionPart" data-start="46.300">
-				it travels over radio
-				waves from your roof,
-			</span>
-			<span class="captionPart" data-start="49.270">
-				the first stop a wire will make once
-				inside your house, is at your modem.
-			</span>
-			<span class="captionPart" data-start="53.760">
-				A modem is what connects the internet
-				to your network at home.
-			</span>
-			<span class="captionPart" data-start="57.780">
-				A few common residential modems are DSL or
-			</span>
-		</p>
+			<p class="captions">
+				<span class="captionPart" data-start="00.240">
+					Now that we've looked at the architecture
+					of the internet, let's see how you might
+				</span>
+				<span class="captionPart" data-start="04.130">
+					connect your personal devices to
+					the internet inside your house.
+				</span>
+				<span class="captionPart" data-start="07.535">
+					Well there are many ways to
+					connect to the internet, and
+				</span>
+				<span class="captionPart" data-start="11.270">
+					most often people connect wirelessly.
+				</span>
+				<span class="captionPart" data-start="13.960">
+					Let's look at an example of how
+					you can connect to the internet.
+				</span>
+				<span class="captionPart" data-start="17.940">
+					If you live in a city or a town,
+					you probably have a coaxial cable for
+				</span>
+				<span class="captionPart" data-start="22.370">
+					cable Internet, or a phone line if you
+					have DSL, running to the outside of
+				</span>
+				<span class="captionPart" data-start="26.880">
+					your house, that connects you to
+					the Internet Service Provider, or ISP.
+				</span>
+				<span class="captionPart" data-start="32.100">
+					If you live far out in the country,
+					you'll more likely have
+				</span>
+				<span class="captionPart" data-start="34.730">
+					a dish outside your house, connecting
+					you wirelessly to your closest ISP, or
+				</span>
+				<span class="captionPart" data-start="39.430">
+					you might also use the telephone system.
+				</span>
+				<span class="captionPart" data-start="42.350">
+					Whether a wire comes straight from
+					the ISP hookup outside your house, or
+				</span>
+				<span class="captionPart" data-start="46.300">
+					it travels over radio
+					waves from your roof,
+				</span>
+				<span class="captionPart" data-start="49.270">
+					the first stop a wire will make once
+					inside your house, is at your modem.
+				</span>
+				<span class="captionPart" data-start="53.760">
+					A modem is what connects the internet
+					to your network at home.
+				</span>
+				<span class="captionPart" data-start="57.780">
+					A few common residential modems are DSL or
+				</span>
+			</p>
+		</div>
 		<script src="js/app.js"></script>
     </body>
 </html>

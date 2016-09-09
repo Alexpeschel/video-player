@@ -1,5 +1,6 @@
 body {
 	margin: 0;
+  background: #000;
 }
 
 button {
@@ -27,6 +28,13 @@ button::-moz-focus-inner {
     padding: 0;
 }
 
+.container {
+  max-width: 1400px;
+  padding-bottom: 50px;
+  margin: 0 auto;
+  background: #fff;
+}
+
 .videoWrapper {
 	position: relative;
 }
@@ -35,10 +43,10 @@ button::-moz-focus-inner {
 	width: 100%;
 }
 .captions {
-	padding: 20px;
-}
-p {
-	padding: 10px 0;
+  max-width: 600px;
+	padding: 20px 30px 10px;
+  margin: 0 auto;
+  line-height: 1.5;
 }
 
 .captionPart:hover {
@@ -254,13 +262,14 @@ input[type=range][orient=vertical]
 /*SPEED CONTROL*/
 .speed-container {
   position: relative;
-  display: inline-block;
+  display: none;
   width: 20px;
   height: 100%;
+  vertical-align: top;
 }
 .speed-button {
   height: 100%;
-  font-size: 16px;
+  font-size: 20px;
 }
 .speed-controls {
   display: none;
@@ -319,7 +328,7 @@ input[type=range][orient=vertical]
 }
 .volume-container {
   position: relative;
-  display: inline-block;
+  display: none;
   width: 100px;
   height: 100%;
   margin-left: 20px;
@@ -348,18 +357,19 @@ input[type=range][orient=vertical]
 
 /*SUBTITLES*/
 .subtitles-container {
-  display: inline-block;
+  display: none;
   height: 100%;
   margin-left: 20px;
   z-index: 9999;
+  vertical-align: top;
 }
 .cc-button {
   height: 100%;
-  color: #fff;
-  font-size: 25px;
+  color: #A8A8A8;
+  font-size: 20px;
 }
 .cc-button.show {
-  color: #e38901;
+  color: #fff;
 }
 .fullscreen-button {
 	width: 20px;
@@ -375,34 +385,12 @@ input[type=range][orient=vertical]
 .subtitles-menu {
   display:none;
   position:absolute;
-  bottom:85%;
+  bottom: 100%;
   right:30px;
   width:100px;
   margin:0;
   padding:0;
   list-style-type:none;
-}
-
-.subtitles-menu:after {
-  position: absolute;
-  z-index: 1001;
-  content: "";
-  background: #000;
-  width: 10px;
-  height: 10px;
-  top: 100%;
-  -webkit-transform-origin: center center;
-  -moz-transform-origin: center center;
-  -ms-transform-origin: center center;
-  -o-transform-origin: center center;
-  transform-origin: center center;
-  -webkit-transform: translate(-50%, -50%) rotate(45deg);
-  -moz-transform: translate(-50%, -50%) rotate(45deg);
-  -ms-transform: translate(-50%, -50%) rotate(45deg);
-  -o-transform: translate(-50%, -50%) rotate(45deg);
-  transform: translate(-50%, -50%) rotate(45deg);
-  left: 50%;
-  border-radius: 0 0 3px 0;
 }
 
 .subtitles-menu li {
@@ -418,4 +406,25 @@ input[type=range][orient=vertical]
   width:90%;
   padding: 5px;
   font-size: 13px;
+}
+
+@media (max-width: 380px) {
+  .subtitles-menu {
+    display: none !important;
+  }
+}
+
+@media (min-width: 380px) {
+  .volume-container {
+    display: inline-block;
+  }
+  .subtitles-container {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 420px) {
+  .speed-container {
+    display: inline-block;
+  }
 }
