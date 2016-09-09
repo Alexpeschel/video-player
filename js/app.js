@@ -97,6 +97,15 @@ function initialiseMediaPlayer() {
 
 	}
 
+	// Event listener for the seek bar
+	progressBar.addEventListener("change", function() {
+	  // Calculate the new time
+	  var time = mediaPlayer.duration * (progressBar.value / 100);
+
+	  // Update the video time
+	  mediaPlayer.currentTime = time;
+	});
+
 	function updateCaptionText() {
 	    // "this" is a textTrack
 	  var cue = textTrack.activeCues[0]; // assuming there is only one active cue
@@ -130,11 +139,14 @@ function initialiseMediaPlayer() {
 	    muteBtnImage.src = "icons/volume-on-icon.png";
 	    muteBtnImage.title = "volume on";
 	    mediaPlayer.muted = false;
+	    var percentage = mediaPlayer.volume * 100;
+		$('#volumeBar').css('width',percentage+'%');
 	  }
 	  else {
 	    muteBtnImage.src = "icons/volume-off-icon.png";
 	    muteBtnImage.title = "volume off";
 	    mediaPlayer.muted = true;
+		$('#volumeBar').css('width','0%');
 	  }
 	}
 
