@@ -1,16 +1,4 @@
-.example {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-transition: all .5s;
-    transition: all .5s;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-    background: -webkit-linear-gradient(top, white, black);
-    background: linear-gradient(to bottom, white, black);
-}body {
+body {
   margin: 0;
   background: #000;
 }
@@ -205,14 +193,6 @@ input[type=range]::-webkit-slider-thumb {
   background: transparent;
   cursor: pointer;
 }
-
-
-/*VERTICAL SLIDE*/
-input[type=range][orient=vertical]
-{
-    -webkit-appearance: none; /* WebKit */
-}
-
 
 /*BUTTONS*/
 .buttons {
