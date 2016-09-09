@@ -44,7 +44,7 @@ function initialiseMediaPlayer() {
 	  if(currentBuffer < maxduration) {
 	        setTimeout(startBuffer, 500);
 		}
-	}
+	};
 
 	function formatSecondsAsTime(secs) {
 	    var hr  = Math.floor(secs / 3600);
@@ -124,6 +124,12 @@ function initialiseMediaPlayer() {
 	  }
 	}
 
+	$('.captionPart').on('click', function() {
+		var start = $(this).data('start');
+	    mediaPlayer.currentTime = start;
+	    mediaPlayer.play();
+	});
+
 	function toggleFullScreen() {
 	  if (mediaPlayer.requestFullscreen) {
 	    mediaPlayer.requestFullscreen();
@@ -152,7 +158,6 @@ function initialiseMediaPlayer() {
 
 	function toggleCC() {
 	  var subtitles = document.getElementById('subtitles');
-	  var captionMenuButtons = [];
 	  var subtitleMenuButtons = [];
 	  var createMenuItem = function(id, lang, label) {
 	     var listItem = document.createElement('li');
@@ -186,13 +191,13 @@ function initialiseMediaPlayer() {
 	     });
 	     subtitleMenuButtons.push(button);
 	     return listItem;
-	  }
+	  };
 
 	  var subtitlesMenu;
 	  var videoContainer = document.getElementById("button-right");
 	  if (mediaPlayer.textTracks) {
 	     var df = document.createDocumentFragment();
-	     var subtitlesMenu = df.appendChild(document.createElement('ul'));
+	     subtitlesMenu = df.appendChild(document.createElement('ul'));
 	     subtitlesMenu.className = 'subtitles-menu';
 	     subtitlesMenu.appendChild(createMenuItem('subtitles-off', '', 'Off'));
 	     for (var i = 0; i < mediaPlayer.textTracks.length; i++) {
@@ -254,7 +259,7 @@ function initialiseMediaPlayer() {
 		mediaPlayer.volume = percentage / 100;
 		
 		//change sound icon based on volume
-		if(mediaPlayer.volume == 0){
+		if(mediaPlayer.volume === 0){
 			$('#mute-button').removeClass('sound2').addClass('muted');
 		    muteBtnImage.src = "icons/volume-off-icon.png";
 		    muteBtnImage.title = "volume off";
@@ -264,7 +269,7 @@ function initialiseMediaPlayer() {
 		    muteBtnImage.src = "icons/volume-on-icon.png";
 		    muteBtnImage.title = "volume on";
 		}
-	}
+	};
 
 	//Speed Control
 	//Speed Control event
@@ -281,4 +286,4 @@ function initialiseMediaPlayer() {
 		mediaPlayer.playbackRate = speed;
 		mediaPlayer.play();
 		$('.speed-controls').removeClass('show');
-	};
+	}

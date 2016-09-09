@@ -41,6 +41,11 @@ p {
 	padding: 10px 0;
 }
 
+.captionPart:hover {
+  color: #e38901;
+  cursor: pointer;
+}
+
 .buttonbar {
 	box-sizing: border-box;
 	position: absolute;
